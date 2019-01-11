@@ -4,7 +4,4 @@
 	yarn
 
 # START APP #
-	yarn start
-
-# BUILD PRODUCTION APP #
-	yarn build
+	yarn dev
