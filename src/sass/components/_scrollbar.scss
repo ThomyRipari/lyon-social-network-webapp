@@ -1,0 +1,51 @@
+$width: 6px;
+$bg-color: darken(#f2f2f2, 10);
+
+:root { --scrollbar-width-hidden: 6px; }
+
+.scrollbar {
+    @include scrollbar($secondary, $bg-color, $width);
+}
+
+.scrollbar-hidden {
+    overflow: hidden;
+    position: relative;
+    padding-right: var(--scrollbar-width-hidden);
+
+    &::before {
+        content: '';
+        width: var(--scrollbar-width-hidden) !important;
+        height: 100vh;
+        background-color: $bg-color;
+        position: fixed;
+        top: 0;
+        right: 0;
+        z-index: map-get($z-index, z-dialog);
+    }
+}
+
+.scrollbar-none { 
+    padding-right: 0 !important;
+    overflow: hidden;
+    position: relative;
+ }
+
+
+@media screen and (max-width: map-get($breakpoints, bp-sm)) {
+    .scrollbar-hidden-nav {
+        overflow: hidden;
+        padding-right: var(--scrollbar-width-hidden) !important;
+        position: relative;
+    
+        &::before {
+            content: '';
+            width: var(--scrollbar-width-hidden);
+            height: 100vh;
+            background-color: $bg-color;
+            position: fixed;
+            top: 0;
+            right: 0;
+            z-index: map-get($z-index, z-infinity);
+        }
+    }
+}

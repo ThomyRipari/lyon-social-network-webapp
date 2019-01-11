@@ -1,0 +1,179 @@
+.add-publication,
+.edit-publication,
+.delete-publication {
+    // padding: 1rem;
+    width: 100%;
+    position: relative;
+
+    $nav-bg: darken($white, 5);
+
+    &-title {
+        text-align: center;
+        font-size: 1.7rem;
+        font-weight: 400;
+        padding: 1rem;
+        position: sticky;
+        top: 0;
+        background-color: $nav-bg;
+        border-bottom: 1px solid rgba(0,0,0,.0975);
+        z-index: map-get($z-index, z-nav);
+
+        &--danger {
+            color: $white;
+            background-color: $danger;
+        }
+    }
+
+    &-form {
+        padding: 1rem;
+
+        &--padding {
+            padding-top: .3rem; 
+        }
+    }
+
+    &-photo-container {
+        width: 100%;
+        position: relative;
+        border: 1px dashed $dark;
+        margin-bottom: 1rem;
+        min-height: 200px;
+
+       .add-publication-photo-edit,
+       .edit-publication-photo-edit {
+            $color: rgba($black, .5);
+            cursor: pointer;
+
+            position: absolute;
+            top: 0; bottom: 0;
+            left: 0; right: 0;
+            background-color: $color;
+            justify-content: center;
+            align-items: center;
+            color: $white;
+            display: none;
+       }
+       &:hover .add-publication-photo-edit, &:hover .edit-publication-photo-edit { display: flex; }
+
+       .add-publication-photo-add,
+       .edit-publication-photo-add { 
+            @extend .add-publication-photo-edit;
+            color: $black;
+            background-color: transparent;
+            display: flex;
+       } 
+    }
+
+    &-photo {
+        width: 100%;
+        position: relative;
+        display: none;
+
+        &-input {
+            display: none
+        }
+
+        &-buttons {
+            display: flex;
+            // flex-wrap: wrap;
+        }
+
+        &-button {
+            font-size: .9rem;
+            padding: .5rem 2rem;
+            background-color: transparent;
+            outline: 0;
+            border: 1px solid $primary;
+            color: $primary;
+            cursor: pointer;
+            text-align: center;
+            margin-bottom: 1rem;
+            flex-grow: 1;
+            width: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            &:nth-child(2) {
+                margin-left: .5rem;
+            }
+
+            &:active {
+                transform: scale(.95);
+            }
+        }
+    }
+
+    &-photo-block { display: block }
+
+    .input-clear-icon-container {
+        width: 100%;
+    }
+
+    &-text {
+        width: 100%;
+        max-width: 100%;
+        min-width: 100%;
+        height: 100px;
+        min-height: 100px;
+        max-height: 100px;
+        padding: 0.5rem;
+        padding-right: 2rem;
+        resize: none;
+    }
+
+    .clear-icon { right: .6rem }
+
+    &-buttons {
+        font-size: .9rem;
+        padding: .5rem 2rem;
+        cursor: pointer;
+        background-color: $primary;
+        border: 0;
+        font-weight: 400;
+        color: $white;
+        border-radius: .1rem;
+        outline: 0;
+        transition: all .3s ease;
+        box-shadow: 0 2px 2px 0 rgba($black, .14), 0 3px 1px -2px rgba($black, .12), 0 1px 5px 0 rgba($black, .2);    
+        // margin-left: .5rem;
+        margin: .2rem;
+        flex-grow: 1;
+
+        &:active {
+            transform: scale(.95);
+        }
+
+        &-container {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            flex-wrap: wrap;
+
+            padding: 1rem;
+            position: sticky;
+            bottom: 0;
+            background-color: $nav-bg;
+            border-top: 1px solid rgba(0,0,0,.0975);
+            z-index: map-get($z-index, z-dialog-el);
+        }
+
+        &--danger { background-color: $danger; }
+    }
+
+    &-profile-container {
+        border-bottom-width: 0 !important;
+
+        &:hover {
+            background-color: transparent !important;
+        }
+    }
+
+    &-details {
+        padding: 0 1rem;
+
+        span {
+            font-size: .9rem;
+        }
+    }
+}

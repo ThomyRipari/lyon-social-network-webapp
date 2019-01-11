@@ -1,0 +1,52 @@
+.profile-photo-modal {
+    height: 100vh;
+    width: 100vw;
+    padding: 2rem;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: map-get($z-index, z-infinity);
+
+    &-img {
+        max-height: 100%;
+        max-width: 100%;
+        z-index: map-get($z-index, z-dialog);
+        object-fit: contain;
+        user-select: none;
+    }
+
+    &-dialog {
+        position: absolute;
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+    
+        background-color: rgba(#000, .8);
+    }
+
+    &-show { 
+        display: flex;
+        animation: modal-show .1s ease forwards;
+
+        @keyframes modal-show {
+            from {opacity: 0;}
+            to {opacity: 1;}
+        }
+    }
+
+    &-animation {
+        display: flex;
+        animation: modal-hidden 1s ease forwards;
+
+        @keyframes modal-hidden {
+            from {opacity: 1;}
+            to {opacity: 0;}
+        } 
+    }
+
+}
+

@@ -1,0 +1,133 @@
+.search {
+    $bg-color: $white;
+    position: relative;
+
+    &-input-container {
+        position: relative;
+        display: flex;
+        align-items: stretch;
+        width: 100%;
+        z-index: map-get($z-index, z-nav );
+    }
+    
+    &-input {
+        padding: .27rem .6rem;
+        font-size: .9rem;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: .25rem;
+        outline: 0;
+        min-width: 250px;
+    }
+
+    &-clear-icon {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        cursor: pointer;
+        display: none;
+        z-index: map-get($z-index, z-dialog-el);
+        position: absolute;
+        left: 1rem;
+    }
+
+    &-results {
+        @include scrollbar(darken($bg-color, 20), $bg-color, .3rem);
+
+        position: absolute;
+        // top: 3rem;
+        top: calc(100% + 10px);
+        
+        width: 100%;
+        max-height: 250px;     
+        max-width: 250px;
+        
+        background-color: $bg-color;
+
+        $shadow-color: rgba(0,0,0,.0975);
+        -webkit-box-shadow: 0 0 5px $shadow-color;
+        -moz-box-shadow: 0 0 5px $shadow-color;
+        box-shadow: 0 0 5px $shadow-color;
+
+        z-index: map-get($z-index, z-nav );
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        &-found {
+            display: flex;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(0,0,0,.0975);
+            
+            &:hover { background-color: darken($white, 3); }
+
+            &-content {
+                display: flex;
+                align-items: center;
+                // justify-content: center;
+                width: 100%;
+            }
+        }
+
+        &-image-container {
+            height: 48px;
+            width: 48px;
+            border-radius: 100%;
+            border: 1px solid rgba(0,0,0,.1975);       
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-right: 1rem;
+        }
+
+        &-image {
+            height: 42px;
+            width: 42px;
+            border-radius: 100%;
+        }
+
+        &-text {
+            display: flex;
+            flex-direction: column;    
+        }
+
+        &-name {
+            font-size: 1.05rem;
+            color: #262626;
+            font-weight: 600;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 130px;
+        }
+
+        &-username {
+            font-size: .9rem;
+            color: #999;
+            font-weight: 300;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 130px;
+        }
+
+        &-none {
+            margin: auto;
+            font-weight: 600;
+        }
+
+        &-quantity {
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+
+            &-text {
+                font-weight: 600;
+            }
+        }
+    }
+}

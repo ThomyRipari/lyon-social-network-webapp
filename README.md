@@ -1,1 +1,10 @@
-lyon-social-network-webapp
+# LYON-SOCIAL-NETWORK-CLIENT #
+
+# INSTALL PACKAGES #
+	yarn
+
+# START APP #
+	yarn start
+
+# BUILD PRODUCTION APP #
+	yarn build

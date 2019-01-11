@@ -1,0 +1,57 @@
+// ==================================================================================== //
+//                                   COLOR PALETTE                                      //
+// ==================================================================================== //
+
+$primary      : #4285F4;
+$primary2     : #0056C7;
+$secondary    : #AAA;
+$info         : #1EAAC8;
+$success      : #23C040;
+$warning      : #FABE0A;
+$danger       : #F53040;
+$light        : #F0F0F0;
+$white        : #FFF;
+$dark         : #1E1E1E;
+$black        : #000;
+
+$breakpoints: (
+    bp-xs     : 300px,
+    bp-xs-2   : 400px,
+    bp-xs-3   : 500px,
+    bp-sm     : 600px,
+    bp-sm-2   : 700px,
+    bp-sm-3   : 800px,
+    bp-md     : 900px,
+    bp-md-2   : 1000px,
+    bp-md-3   : 1100px,
+    bp-lg     : 1200px,
+    bp-lg-2   : 1300px,
+    bp-lg-3   : 1400px,
+    bp-xl     : 1500px,
+    bp-xl-2   : 1600px,
+    bp-xl-3   : 1700px,
+);
+
+:root {
+    --contain-width: calc(70vw - .4rem);
+    
+    @media screen and (max-width: map-get($breakpoints, bp-md)) { --contain-width: calc(90vw - .4rem);}
+    @media screen and (max-width: map-get($breakpoints, bp-sm-2)) {  --contain-width: calc(95vw - .4rem); }
+    @media screen and (max-width: map-get($breakpoints, bp-sm) + 50px ) {  --contain-width: calc(95vw - .4rem); }
+    @media screen and (max-width: map-get($breakpoints, bp-sm)) {  --contain-width: calc(100vw - .4rem); }
+
+}
+
+$z-index: (
+    z--1: -1,
+    z-0: 0,
+    z-1: 1,
+    z-2: 50,
+    z-tooltip: 75,
+    z-nav: 100,
+    z-modal: 500,
+    z-dialog: 1000,
+    z-dialog-el: 1100,
+    z-loader: 10000,
+    z-infinity: 10000000  
+)

@@ -1,0 +1,357 @@
+.settings-container {
+    margin-top: 75px;
+    height: calc(100vh - 75px);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    // align-items: center; 
+
+}
+
+.settings {
+    width: var(--contain-width);
+    display: flex;
+    padding: 0 1rem;
+    align-self: center;
+
+    &-options {
+        width: 25%;
+        min-width: 25%;
+        background-color: $white;
+        border: 1px solid #dbdbdb;
+
+        &-list {
+            list-style: none;
+        }
+
+        &-item {
+            color: #262626;
+            border-left: 2px solid transparent;
+            display: block;
+            font-size: 16px;
+            height: 100%;
+            line-height: 20px;
+            padding: 1rem 1rem 1rem 1.8rem;
+            width: 100%;
+            cursor: pointer;
+
+            &:hover { border-color: #dbdbdb; background-color: #fafafa; }
+
+            &.show {
+                border-color: #262626;
+                font-weight: 600;
+            }
+        }
+    }
+
+
+
+
+
+    &-functionalities {
+        flex-grow: 1;
+        background-color: $white;        
+        border: 1px solid #dbdbdb;
+        border-left-width: 0; 
+        padding: 1.5rem 4rem 1rem;
+        display: flex;
+        flex-direction: column;
+        
+
+        // edit profile
+        &-user-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        &-user-image {
+            width: 3rem;
+            height: 3rem;
+            border-radius: 100%;
+        }
+
+        &-user-name {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: .5rem;
+
+            &-text-one {
+                font-size: 20px;
+                color: $dark;
+                font-weight: 500;
+            }
+
+            &-text-two {
+                font-size: 14px;
+                color: rgba($dark, .8);
+                font-weight: 100;
+            }
+        }
+
+
+
+        &-update-user-info {
+            display: flex;
+            width: 100%;
+            height: 100%;
+
+            &-name, 
+            &-username,
+            &-password, 
+            &-photo,
+            &-description,
+            &-more-configurations {
+                width: 100%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+            
+            &-form {   
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            &-text {
+                white-space: pre-wrap;
+                display: inline-block;
+                line-height: 1.4;
+
+                * {
+                    vertical-align: middle;
+                }
+            }
+
+            .form-settings-label {
+                display: flex;
+                align-items: center;
+                margin-bottom: 2.5rem;
+
+
+                @media screen and (max-width: map-get($breakpoints, bp-md)) {
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+
+                &--update-photo {
+                    justify-content: space-around;
+
+                    @media screen and (max-width: map-get($breakpoints, bp-md)) {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                }
+
+
+                .form-settings-buttons {
+                    display: flex;
+                    flex-direction: column;
+
+                    &--input, 
+                    &--button {
+                        font-size: .9rem;
+                        padding: .5rem 2rem;
+                        background-color: transparent;
+                        outline: 0;
+                        border: 1px solid $primary;
+                        color: $primary;
+                        cursor: pointer;
+                        text-align: center;
+
+                        &:active {
+                            transform: scale(.95);
+                        }
+                    }
+
+                    &--input { margin-bottom: 1.5rem; }
+                }
+
+                &--photo {
+                    position: relative;
+                    width: 12.5rem;
+                    height: 12.5rem;
+                    border: 1px dashed $dark;
+
+                    @media screen and (max-width: map-get($breakpoints, bp-md)) {
+                        margin-bottom: 2rem;
+                    }
+
+                    img {
+                        width: 100%;
+                        height: 100%;
+                    }
+                    &-edit {
+                        $color: rgba($black, .5);
+                        cursor: pointer;
+        
+                        position: absolute;
+                        top: 0; bottom: 0;
+                        left: 0; right: 0;
+                        background-color: $color;
+                        justify-content: center;
+                        align-items: center;
+                        color: $white;
+                        display: none;
+                    }
+                    &:hover {
+                        .form-settings-label--photo-edit { display: flex }
+                    } 
+                }
+            }
+
+            &-input-container {
+                display: flex;
+                flex-direction: column;
+                width: 18rem;
+                max-width: 100%;
+                position: relative;
+
+                .invalid-input-value-message {
+                    font-size: .9rem;
+                    position: absolute;
+                    bottom: -1.2rem;
+                    color: $danger
+                }
+            }
+
+            &-input {
+                padding: .5rem 1rem .5rem .5rem;
+                background-color: transparent;
+                border: 1px solid darken($light, 10);
+                border-radius: 3px;
+                color: lighten($dark, 25);
+                width: 100%;
+
+                @media screen and (max-width: map-get($breakpoints, bp-md)) {
+
+                }
+            }
+
+            &-title {
+                margin-right: 1.5rem;
+                color: lighten($dark, 7);
+                font-size: .95rem;
+                font-weight: 600;
+                width: 5.4rem;
+                text-align: right;
+
+                &--update-photo {
+                    text-align: center;
+                    margin-bottom: 2rem;
+                }
+
+                @media screen and (max-width: map-get($breakpoints, bp-md)) {
+                   text-align: left;
+                   margin: 0;
+                   margin-bottom: 1rem;
+                   width: 100%;
+                }
+            }
+
+            &-button {
+                font-size: .9rem;
+                padding: .5rem 2rem;
+                margin-top: 1.5rem;
+                cursor: pointer;
+                background-color: $primary;
+                border: 0;
+                font-weight: 400;
+                color: $white;
+                border-radius: .1rem;
+                outline: 0;
+                transition: all .3s ease;
+                box-shadow: 0 2px 2px 0 rgba($black, .14), 0 3px 1px -2px rgba($black, .12), 0 1px 5px 0 rgba($black, .2);    
+
+                &:active {
+                    transform: scale(.95);
+                }
+
+                &-container {
+                    margin-top: 1rem;    
+                }
+            }
+
+            &-text {
+                outline: 0;
+            }
+
+            &-text-container {
+                background-color: transparent;
+                border: 1px solid darken($light, 10);
+                border-radius: 3px;
+                color: lighten($dark, 25);
+                width: 100%;
+                position: relative;
+            }
+
+        }
+    }
+
+    @media screen and (max-width: map-get($breakpoints, bp-lg)) {
+        flex-direction: column;
+
+        &-options { 
+            display: flex; 
+            width: 100%;
+            border-bottom: 0;
+
+            &-list {
+                width: 100%;
+                display: flex;
+                flex-wrap: wrap;
+
+                a {
+                    width: calc(100% / 3);
+                    text-align: center;
+                }
+
+            }
+
+            &-item {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+               border-right: 2px solid transparent;
+               padding: 1rem .8rem;
+               font-size: .9rem;
+            }
+        }
+
+
+        &-functionalities {
+            border-left-width: 1px;
+            padding-top: 2rem;
+            padding-bottom: 2rem;
+        }
+    }
+
+    @media screen and (max-width: map-get($breakpoints, bp-xs-2)) {
+        &-options-list a { width: calc(100% / 2); }            
+    }
+
+    @media screen and (max-width: map-get($breakpoints, bp-xs)) {
+        &-options-list a { width: calc(100% / 1); }            
+    }
+
+    .border-0 {
+        border: 0;
+    }
+
+    .w-100 {
+        width: 100%;
+        text-align: left;
+    }
+    .ml-icon {
+        margin-left: .5rem;
+    }
+    .text-verify {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

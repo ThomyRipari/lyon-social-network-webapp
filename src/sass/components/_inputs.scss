@@ -1,0 +1,37 @@
+.input-clear-icon-container {
+    position: relative;
+    display: inline-block;
+}
+
+
+.clear-icon-container {
+    display: none;
+}
+
+.input {
+    padding-right: 1.5rem;
+
+    &:not(:placeholder-shown) + .clear-icon-container{
+        display: inline-block;
+    }
+}
+
+.clear-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    color: #495057;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: .9rem;
+
+}
+
+.clear-icon-search {
+    @media screen and (max-width: 600px) {
+        right: 1rem;
+        font-size: 1rem;
+    }
+}

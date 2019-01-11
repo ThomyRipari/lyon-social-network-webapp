@@ -1,0 +1,22 @@
+@mixin scrollbar($color, $bg-color, $width) {
+    &::-webkit-scrollbar {
+        width: $width;
+        padding: 3rem;
+        &-thumb { 
+            border-radius: 2px;
+            background-color: $color;
+            transition: all .3s ease;
+    
+            &:hover { background-color: darken($color, 10); }
+        }
+        
+        &-track { background: $bg-color; }
+    }
+}
+
+
+@mixin loader($width, $padding, $color) {
+   padding: $padding;
+  .loader { width: $width / 2.2;}
+  .path { stroke: $color; }
+}

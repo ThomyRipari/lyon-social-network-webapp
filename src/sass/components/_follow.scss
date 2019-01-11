@@ -1,0 +1,75 @@
+.follow-dialog {
+    [role*=document] {
+        @include scrollbar(darken($bg-color, 20), $bg-color, .3rem);
+        max-height: 300px;
+    }
+}
+
+.user-follows {
+    &-title {
+        padding: 1rem;
+        font-weight: 400;
+        text-align: center;
+        border-bottom: 1px solid rgba(0,0,0,.0975);
+        position: sticky;
+        top: 0;
+        background-color: $white;
+    }
+}
+
+.user-profile {
+    &-container {
+        display: flex;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(0,0,0,.0975);
+        align-items: center;
+        
+        &:hover { background-color: darken($white, 3); }
+    }
+
+
+    &-image-container {
+        height: 48px;
+        width: 48px;
+        border-radius: 100%;
+        border: 1px solid rgba(0,0,0,.1975);       
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 1rem;
+    }
+
+    &-image {
+        height: 42px;
+        width: 42px;
+        border-radius: 100%;
+    }
+
+
+    &-text-container {
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    &-name-text {
+        font-size: 1.05rem;
+        color: #262626;
+        font-weight: 600;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 130px;
+    }
+
+    &-username-text {
+        font-size: .9rem;
+        color: #999;
+        font-weight: 300;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 130px;
+    }
+}

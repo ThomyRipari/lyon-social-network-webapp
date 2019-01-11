@@ -1,0 +1,31 @@
+.dropdown-z-index { z-index: map-get($z-index, z-dialog-el) !important; }
+
+.dropdown-show-flex,
+.dropdown-show-grid,
+.dropdown-show-inline-block,
+.dropdown-show-block {
+    z-index: map-get($z-index, z-dialog-el) + 10 !important;
+
+    * { z-index: map-get($z-index, z-dialog-el) + 10 !important; }
+}
+
+.dropdown-show-flex { display: flex !important; }
+.dropdown-show-grid { display: grid !important; }
+.dropdown-show-inline-block { display: inline-block !important; }
+.dropdown-show-block { display: block !important; }
+
+
+.dropdown-dialog-show {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: map-get($z-index, z-dialog-el) - 10;
+    
+    width: 100vw;
+    height: 100vh;
+}
+
+.search {
+    * { z-index: map-get($z-index, z-dialog) + 1 !important; }
+    .dropdown-dialog-show { z-index: map-get($z-index, z-dialog) !important; }
+}

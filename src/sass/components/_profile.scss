@@ -1,0 +1,416 @@
+:root {
+    --padding: 2rem;
+    @media screen and (max-width: map-get($breakpoints, bp-sm)) { --padding: 0rem }
+}
+.profile {
+
+    //  ============= Header ============= //
+
+    &-container {
+        width: var(--contain-width);
+        margin: 7rem auto 5rem;
+        padding: 0 var(--padding);
+        position: relative;
+
+    }
+    &-user {
+        &-data {
+            display: flex;
+            margin-bottom: 3rem;
+            flex-direction: column;
+            border-bottom: 1px solid #efefef;
+            padding-bottom: 2rem;
+    
+            &-container {
+                width: 100%;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding-bottom: 2rem;
+            }
+
+            &-information {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                padding: 0 2rem;
+
+                &-description {
+                    position: relative;
+                    display: inline-block;
+                    white-space: pre-wrap;
+
+                    * {
+                        vertical-align: middle;
+                    }
+                }
+
+                &-more-button {
+                    padding: .4rem 1rem;
+                    margin: 1rem .5rem 1.5rem;
+                    background-color: transparent;
+                    border: 1px solid $primary;
+                    color: $primary;
+                    cursor: pointer;
+                    border-radius: 3px;
+                    outline: 0;
+    
+                    &:active { transform: scale(.95) }
+
+                }
+                &-container {
+                    display: flex;
+                    flex-direction: column;
+
+                    &-text {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        margin-bottom: 1rem;
+                         
+                        i {
+                            margin-left: .5rem;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Photo
+        $photo-size: 8rem;
+        &-photo-container {
+            height: $photo-size + 8 * $photo-size / 100;
+            width: $photo-size + 8 * $photo-size / 100;
+  
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            position: relative;
+            border: 2px solid transparent;
+            background: #f2f2f2;
+            border-radius: 100%;
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: -4px; bottom: -4px;
+                left: -4px; right: -4px;
+                background: linear-gradient(-150deg, lighten($primary, 50), darken($primary2, 1));
+                z-index: -1;
+                border-radius: 100%;
+                animation: rotate 15s infinite linear;
+            }
+
+            @keyframes rotate {
+                from {transform: rotate(0) }
+                to {transform: rotate(1turn)}
+            }
+        }
+
+        &-photo {
+            width: $photo-size;
+            height: $photo-size;
+            border-radius: 50%;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        &-name-details-container {
+            padding: .5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        &-name-texts {
+            margin: 0 1rem 1rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        &-name {
+            font-size: 2rem;
+            color: $dark;
+            font-weight: 500;
+            margin: 0 .5rem;
+
+            &-content {
+                display: flex;
+                align-items: center;
+                margin-bottom: .3rem;
+            }
+
+            &-follow {
+                padding: .4rem 1rem;
+                margin: 0 .5rem;
+                background-color: transparent;
+                border: 1px solid $primary;
+                color: $primary;
+                cursor: pointer;
+                border-radius: 3px;
+                outline: 0;
+
+                &:active { transform: scale(.95) }
+            }
+        }
+
+        &-username {
+            font-size: 1.2rem;
+            color: $dark;
+            font-weight: 500;
+        }
+
+        &-details {
+            display: flex;
+        }
+
+        &-detail-item {
+            text-align: center;
+            margin: 0 .5rem;
+            width: 100px;
+
+            &-title {
+                font-size: 1rem;
+                font-weight: 200;
+                cursor: pointer;
+            }
+    
+            &-number {
+                display: inline-block;
+                font-size: 1.2rem;
+                font-weight: 600;
+                margin-bottom: .3rem;
+                cursor: pointer;
+            }
+        }
+
+    }
+
+    @media screen and (max-width: map-get($breakpoints, bp-sm-2)) {
+        &-user-data-container { 
+            flex-direction: column;
+            align-items: center;
+        }
+
+        $photo-size-2: 6rem;
+        &-user-photo-container {
+            height: $photo-size-2 + 8 * $photo-size-2 / 100;
+            width: $photo-size-2 + 8 * $photo-size-2 / 100;
+            margin-bottom: 1rem;
+        }
+
+        &-user-photo {
+            width: $photo-size-2;
+            height: $photo-size-2;
+        }
+
+        &-user-name-texts {
+            margin-bottom: 1rem;
+        }
+
+        &-user-name-details-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
+        &-user-details {
+            width: 100%;
+            display: flex;
+            justify-content: space-evenly;
+        }
+
+    }
+    
+    
+    @media screen and (max-width: map-get($breakpoints, bp-xs-3)) {
+        &-user-name-details-container { padding-left: 0; padding-right: 0; }
+
+        &-user-details {
+            padding: 0 1rem;
+        }
+
+        &-user-detail-item { 
+            margin: 1rem 1rem;
+            width: calc(100% / 3)
+        }
+    }
+
+    //  ============= End Header ============= //
+
+
+
+    //  ============= Main ============= //
+    &-main {
+        margin-bottom: 3rem;
+        &-title {
+            font-size: 2rem;
+            font-weight: 1;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+    }
+    &-publications {
+        --columns: 4;
+        --gap: .2rem;
+        display: grid;
+        grid-template-columns: repeat(var(--columns), 1fr);
+        grid-gap: var(--gap);
+
+        &-item {
+            position: relative;
+      
+            height: calc(
+                        calc(
+                            calc(
+                                calc(var(--contain-width) - calc(var(--padding) * 2)) /* el ancho del main menos el padding */
+                            ) -
+                            calc(
+                                var(--gap) * 
+                                calc(
+                                    var(--columns) - 1 /* lineas de grid */
+                                ) /* Calcula el total de espacio que ocupan las lineas */
+                            )
+                        ) / var(--columns) /* Se divide el total que nos da por la cantidad de imagenes que hay por fila */
+                    ); 
+
+            &-img {
+                width: 100%;
+                height: 100%;
+                user-select: none;
+            }
+
+            &-config {
+                $color: rgba($black, .5);
+                cursor: pointer;
+
+                position: absolute;
+                top: 0; bottom: 0;
+                left: 0; right: 0;
+                background-color: $color;
+                justify-content: center;
+                align-items: center;
+                display: none;
+
+                &-icon {
+                    color: $white;
+                    position: absolute;
+                    margin: .7rem;
+                    user-select: none;
+                   
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+
+                    i { width: 24px;
+                        height: 24px;}
+
+                    &-points { width: 10px; top: 0; right: 0; }
+                    &-options {  
+                        position: absolute;
+                        top: 2.3rem;
+                        right: -70%;
+                        z-index: 10;
+                
+                        display: none;
+                        flex-direction: column;
+                
+                        background-color: $white;
+                
+                        $shadow-color: rgba(0,0,0,.0975);
+                        -webkit-box-shadow: 0 0 5px $shadow-color;
+                        -moz-box-shadow: 0 0 5px $shadow-color;
+                        box-shadow: 0 0 5px $shadow-color;
+                
+                        &::after {
+                            content: '';
+                
+                            $size: 15px;
+                
+                            position: absolute;
+                            height: $size;
+                            width: $size;
+                            background-color: $white;
+                            transform: rotate(45deg);
+                            z-index: 0;
+                            top: - $size/2;
+                            right: 4%;
+                
+                            -webkit-box-shadow: -1px -1px 3px $shadow-color;
+                            -moz-box-shadow: -1px -1px 3px $shadow-color;
+                            box-shadow: -1px -1px 3px $shadow-color;
+                        }
+
+                        &-list {
+                            list-style: none;
+
+                            &-item {
+                                color: lighten($primary2, 20);    
+                                padding: 1rem;
+                                border-bottom: 1px solid rgba(0,0,0,.0975);
+                    
+                                &:hover {color: $primary2; background-color: darken($white, 3); }
+                            }
+                        }
+
+                    }
+
+
+                    &-likes { bottom: 0; left: 0; }
+                    &-comments { bottom: 0; right: 0; }
+                    &-date { 
+                        position: relative;
+                        align-self: flex-end;
+                        margin-bottom: .8rem;
+                    }
+                    &-date-text::first-letter { text-transform: uppercase }
+                }
+            }
+
+            &:hover &-config { display: flex; }
+
+            &-only-text {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                
+                height: 100%;
+                border: 1px solid $secondary;
+
+                padding: 1rem;
+                overflow: hidden;
+                
+                p {
+                    // text-overflow: ellipsis;
+                    // overflow: hidden;
+                    // white-space: wrap;
+                    word-break: break-all
+
+                }
+            }
+        }
+
+        @media screen and (max-width: map-get($breakpoints, bp-md-3)) { --columns: 3 }
+        @media screen and (max-width: map-get($breakpoints, bp-sm-3) - 50px ) { --columns: 2 }
+        @media screen and (max-width: map-get($breakpoints, bp-xs-3) - 50px) { --columns: 1 }
+
+
+    }
+
+    &-dialog {
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 10;
+        
+        width: 100vw;
+        height: 100vh;
+    }
+
+    &-photo-options-show { display: block; }
+
+}

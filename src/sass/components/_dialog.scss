@@ -1,0 +1,7 @@
+.material-ui-dialog {
+    z-index: map-get($z-index, z-infinity);
+
+    div {
+        @include scrollbar(darken($bg-color, 20), $bg-color, .3rem);
+    }
+}

@@ -1,0 +1,35 @@
+#root,
+.rootchild {
+	width: 100%;
+	// height: 100vh;
+}
+
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #fafafa;
+    // min-height: 100vh;
+    overflow-x: hidden;
+}
+
+a {
+	text-decoration: none;	
+}
+
+img {
+    object-fit: cover;
+}
+
+Dialog {
+    z-index: map-get($z-index, z-infinity);
+    background-color: red;
+}
+
+.material-icons { user-select: none; }
